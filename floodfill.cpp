@@ -20,12 +20,12 @@ void floodFill(vector<vector<int>>& grid, int x, int y, int newColor, int origin
     floodFill(grid, x - 1, y, newColor, originalColor); //Pixel to the left
     floodFill(grid, x, y + 1, newColor, originalColor); //Pixel above
     floodFill(grid, x, y - 1, newColor, originalColor); //Pixel below
-    
+
     // TOTAL NUMBER OF INSTRUCTIONS: (1 + 1 + 5 + 1) x (m x n) = 8 x (m x n) = O(m x n) 
 
     // Simplifies into O(n^2) under square matrix conditions 
 
-    // For its worst case it can be observed when the chosen cell is already equal to the new color
+    // For its best case it can be observed when the chosen cell is already equal to the new color
 
     // In this case, the function will return immediately without making any recursive calls, having only run 7 instructions.
 
