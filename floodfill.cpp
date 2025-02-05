@@ -16,13 +16,15 @@ void floodFill(vector<vector<int>>& grid, int x, int y, int newColor, int origin
 
     // TOTAL NUMBER OF RECURSIVE CALLS: BOUNDED BY THE NUMBER OF CELLS IN THE GRID
 
-    // O (N x M) where N is the number of rows and M is the number of columns
-
-    
+    // O (m x n) where m is the number of rows and n is the number of columns
     floodFill(grid, x + 1, y, newColor, originalColor); 
     floodFill(grid, x - 1, y, newColor, originalColor);
     floodFill(grid, x, y + 1, newColor, originalColor);
     floodFill(grid, x, y - 1, newColor, originalColor);
+
+    // TOTAL NUMBER OF INSTRUCTIONS: (1 + 1 + 5 + 1) x (m x n) = 8 x (m x n) = O(m x n) 
+
+    // Simplifies into O(n^2) under square matrix conditions
 }
 
 void startFloodFill(vector<vector<int>>& grid, int x, int y, int newColor) {
