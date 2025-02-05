@@ -4,17 +4,22 @@ using namespace std;
 
 void floodFill(vector<vector<int>>& grid, int x, int y, int newColor, int originalColor) {
 
-    int rows = grid.size();
-    int cols = grid[0].size();
+    int rows = grid.size(); // 1 instruction O(1)
+    int cols = grid[0].size(); // 1 instruction O(1)
 
     if (x < 0 || x >= rows || y < 0 || y >= cols || grid[x][y] != originalColor) {
         return;
-    }
+    } // 5 instructions O(1)
 
-    grid[x][y] = newColor;
+    grid[x][y] = newColor; // 1 instruction O(1)
 
 
-    floodFill(grid, x + 1, y, newColor, originalColor);
+    // TOTAL NUMBER OF RECURSIVE CALLS: BOUNDED BY THE NUMBER OF CELLS IN THE GRID
+
+    // O (N x M) where N is the number of rows and M is the number of columns
+
+    
+    floodFill(grid, x + 1, y, newColor, originalColor); 
     floodFill(grid, x - 1, y, newColor, originalColor);
     floodFill(grid, x, y + 1, newColor, originalColor);
     floodFill(grid, x, y - 1, newColor, originalColor);
